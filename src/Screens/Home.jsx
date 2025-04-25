@@ -30,8 +30,8 @@ const Home = () => {
                 </Grid>
                 <button onClick={() => navigate('/ReactLifeCycle')}>Go to React Life Cycle</button>
                 <Grid item>
-                    <Button component={Link} to="/revenue" variant="contained" color="secondary">
-                        Revenue
+                    <Button component={Link} to="/ReduxDemo" variant="contained" color="secondary">
+                        ReduxDemo
                     </Button>
                 </Grid>
                 <Grid item>

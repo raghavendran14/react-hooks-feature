@@ -2,7 +2,9 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
-import GlobalRouter from "./Global/GlobalRouter"
+import GlobalRouter from "./Global/GlobalRouter";
+import { Provider } from "react-redux";
+import store from "./Redux/store";
 
 
 function App() {
@@ -10,7 +12,9 @@ function App() {
 
   return (
     <div>
-      <GlobalRouter />
+      <Provider store={store}>
+        <GlobalRouter />
+      </Provider>
     </div>
   )
 }
