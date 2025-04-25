@@ -135,4 +135,114 @@ export default LifecycleDemo;
 ---
 
 
+# 🧰 React Redux Setup and Basics (JavaScript)
+
+Redux helps manage application state in a predictable way. Here's how to integrate Redux in a Vite + React app using plain JavaScript.
+
+---
+
+## 🔧 Step 1: Install Required Packages
+
+```bash
+npm install @reduxjs/toolkit react-redux
+```
+
+---
+
+## 🏗️ Step 2: Setup Redux Store
+
+### Create `src/store.js`:
+```js
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from './features/counterSlice';
+
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer
+  }
+});
+```
+
+---
+
+## 🧩 Step 3: Create a Slice
+
+### Create `src/features/counterSlice.js`:
+```js
+import { createSlice } from '@reduxjs/toolkit';
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: { value: 0 },
+  reducers: {
+    increment: (state) => { state.value += 1 },
+    decrement: (state) => { state.value -= 1 },
+    reset: (state) => { state.value = 0 }
+  }
+});
+
+export const { increment, decrement, reset } = counterSlice.actions;
+export default counterSlice.reducer;
+```
+
+---
+
+## 🌍 Step 4: Wrap App with Redux Provider
+
+### Update `main.jsx`:
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { Provider } from 'react-redux';
+import { store } from './store';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+```
+
+---
+
+## ⚙️ Step 5: Use Redux in Components
+
+### Example in `App.jsx`:
+```jsx
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement, reset } from './features/counterSlice';
+
+const App = () => {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <h1>Redux Counter</h1>
+      <p>Count: {count}</p>
+      <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(decrement())}>Decrement</button>
+      <button onClick={() => dispatch(reset())}>Reset</button>
+    </div>
+  );
+};
+
+export default App;
+```
+
+---
+
+## ✅ Summary
+
+- Redux helps manage global state
+- `createSlice` simplifies reducer + actions
+- Use `useSelector` to access state, `useDispatch` to update it
+
+
+
+
+
+
 

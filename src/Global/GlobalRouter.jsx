@@ -7,6 +7,7 @@ const GlobalRouter = () => {
             <>
                 <Route path="/" element={<Home />} />
                 <Route path="ReactLifeCycle" element={<ReactLifeCycle />} />
+                <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </>
             // </Route>
         ))

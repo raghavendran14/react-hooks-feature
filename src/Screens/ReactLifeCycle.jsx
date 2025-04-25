@@ -26,7 +26,7 @@ const ReactLifeCycle = () => {
         };
     }, []);
 
-    // 🔄 Runs on every count update - similar cpmponentDidUpdate / getDerivedFromProps
+    // 🔄 Runs on every count update - similar to componentDidUpdate / getDerivedStateFromProps
     useEffect(() => {
         if (count > 0) {
             console.log("🔁 Count Updated:", count);
