@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../Redux/CouterSlice";
+import { login, logout } from "../Redux/UserSlice";
 
 const ReduxDemo = () => {
     // const [count, setCount] = useState(0);
@@ -50,6 +51,31 @@ const ReduxDemo = () => {
             <button onClick={countIncrement}>Increment</button>
             <p>Local Count: {count}</p>
             <p>Redux Count: {reduxCount}</p>
+            <button onClick={() => {
+                dispatch(login({
+                    user: "John Doe",
+                    token: "sbnsbnsbnsbnsbns",
+                    isLoggedIn: true,
+                    isLoading: false,
+                    error: null,
+                    success: true,
+                    message: "Login successful"
+                }))
+            }}>Login</button>
+            <button onClick={() => {
+                dispatch(logout({
+                    user: null,
+                    token: null,
+                    isLoggedIn: false,
+                    isLoading: false,
+                    error: null,
+                    success: true,
+                    message: "Logout successful"
+                }))
+            }}
+            >
+                Logout
+            </button>
         </div>
     );
 }
