@@ -35,8 +35,8 @@ const Home = () => {
                     </Button>
                 </Grid>
                 <Grid item>
-                    <Button component={Link} to="/reports" variant="outlined">
-                        Reports
+                    <Button component={Link} to="/ContextDemo" variant="outlined">
+                        Context Demo
                     </Button>
                 </Grid>
             </Grid>
